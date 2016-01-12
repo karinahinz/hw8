@@ -17,7 +17,7 @@ const double e=0.6;
 const double pi=3.141;
 const double tEnd=20*pi;
 const double t0=0;
-const double dt= 0.05;
+const double dt= 0.0005;
 const double N=(tEnd-t0)/dt;
 double t=t0;
 
@@ -44,9 +44,11 @@ out <<t<<"\t"<<H<<"\t"<< q[0]<<"\t"<<q[1]<<endl;
 out.close();
 return 0 ;
 }
+
 void step(double* q, double* p,const double dt,const int dim){
-  for (int i =0;i<dim;i++){
    double Q=q[0]*q[0]+q[1]*q[1];
+  for (int i =0;i<dim;i++){
+  
   p[i]-=dt*(q[i]/(pow(Q,1.5)));
   q[i]+=dt*p[i];
   }
